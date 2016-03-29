@@ -15,6 +15,10 @@ namespace ArtnetDisplay {
         public FormMain() {
             InitializeComponent();
             CreateHandle();
+            var col = new DataGridViewBarColumn();
+            col.DataPropertyName = "Value";
+            dataDmx.Columns.Add(col);
+            col.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
             _receiver.PacketReceived += packetReceived;
         }
 
