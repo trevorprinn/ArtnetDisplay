@@ -16,8 +16,10 @@ namespace ArtnetDisplay {
 
         public class PacketReceivedEventArgs {
             public byte[] Data { get; }
-            public PacketReceivedEventArgs(byte[] data) {
+            public IPEndPoint Ep { get; }
+            public PacketReceivedEventArgs(byte[] data, IPEndPoint ep) {
                 Data = data;
+                Ep = ep;
             }
         }
         public event EventHandler<PacketReceivedEventArgs> PacketReceived;
@@ -46,7 +48,7 @@ namespace ArtnetDisplay {
                     if (!_close) continue;
                 }
                 if (_close) break;
-                decode(data);
+                decode(data, ep);
             }
             try {
                 _client.Close();
@@ -55,7 +57,7 @@ namespace ArtnetDisplay {
             }
         }
 
-        private void decode(byte[] packet) {
+        private void decode(byte[] packet, IPEndPoint ep) {
             if (packet == null || packet.Length < 18) return; // Can't be an Artnet packet
             if (_artnetHeader.Zip(packet, (h, p) => h != p).Any(m => m)) return; // Not an Artnet header
             var opcode = (packet[9] << 8) + packet[8];
@@ -66,11 +68,11 @@ namespace ArtnetDisplay {
             var dataLength = (packet[16] << 8) + packet[17];
             if (packet.Length != dataLength + 18) return; // Malformed packet
             var data = packet.Skip(18).ToArray();
-            OnPacketReceived(data);
+            OnPacketReceived(data, ep);
         }
 
-        protected virtual void OnPacketReceived(byte[] data) {
-            PacketReceived?.Invoke(this, new PacketReceivedEventArgs(data));
+        protected virtual void OnPacketReceived(byte[] data, IPEndPoint ep) {
+            PacketReceived?.Invoke(this, new PacketReceivedEventArgs(data, ep));
         }
 
         #region IDisposable Support
