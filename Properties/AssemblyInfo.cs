@@ -6,11 +6,11 @@ using System.Runtime.InteropServices;
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
 [assembly: AssemblyTitle("ArtnetDisplay")]
-[assembly: AssemblyDescription("")]
+[assembly: AssemblyDescription("Displays channel values sent by an Art-net controller")]
 [assembly: AssemblyConfiguration("")]
-[assembly: AssemblyCompany("")]
+[assembly: AssemblyCompany("Babbacombe Computers Ltd")]
 [assembly: AssemblyProduct("ArtnetDisplay")]
-[assembly: AssemblyCopyright("Copyright ©  2016")]
+[assembly: AssemblyCopyright("Copyright © Babbacombe Computers Ltd 2016")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 

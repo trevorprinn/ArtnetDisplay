@@ -24,13 +24,15 @@
         /// </summary>
         private void InitializeComponent() {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormMain));
             this.dataDmx = new System.Windows.Forms.DataGridView();
             this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.light = new System.Windows.Forms.Panel();
             this.labelIP = new System.Windows.Forms.Label();
             this.timerTick = new System.Windows.Forms.Timer(this.components);
+            this.btnAbout = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataDmx)).BeginInit();
             this.SuspendLayout();
             // 
@@ -65,8 +67,8 @@
             // Column1
             // 
             this.Column1.DataPropertyName = "Value";
-            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            this.Column1.DefaultCellStyle = dataGridViewCellStyle5;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            this.Column1.DefaultCellStyle = dataGridViewCellStyle1;
             this.Column1.HeaderText = "Value";
             this.Column1.Name = "Column1";
             this.Column1.ReadOnly = true;
@@ -94,14 +96,27 @@
             this.timerTick.Interval = 500;
             this.timerTick.Tick += new System.EventHandler(this.timerTick_Tick);
             // 
+            // btnAbout
+            // 
+            this.btnAbout.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnAbout.Location = new System.Drawing.Point(249, 0);
+            this.btnAbout.Name = "btnAbout";
+            this.btnAbout.Size = new System.Drawing.Size(75, 23);
+            this.btnAbout.TabIndex = 3;
+            this.btnAbout.Text = "About";
+            this.btnAbout.UseVisualStyleBackColor = true;
+            this.btnAbout.Click += new System.EventHandler(this.btnAbout_Click);
+            // 
             // FormMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(324, 290);
+            this.Controls.Add(this.btnAbout);
             this.Controls.Add(this.labelIP);
             this.Controls.Add(this.light);
             this.Controls.Add(this.dataDmx);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "FormMain";
             this.Text = "Artnet Display";
             ((System.ComponentModel.ISupportInitialize)(this.dataDmx)).EndInit();
@@ -118,6 +133,7 @@
         private System.Windows.Forms.Panel light;
         private System.Windows.Forms.Label labelIP;
         private System.Windows.Forms.Timer timerTick;
+        private System.Windows.Forms.Button btnAbout;
     }
 }
 

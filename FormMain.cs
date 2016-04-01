@@ -50,5 +50,11 @@ namespace ArtnetDisplay {
             var brush = DateTime.Now.Subtract(_lastTick).TotalMilliseconds > 2000 ? Brushes.Red : Brushes.Green;
             e.Graphics.FillEllipse(brush, light.ClientRectangle);
         }
+
+        private void btnAbout_Click(object sender, EventArgs e) {
+            using (var f = new FormAbout()) {
+                f.ShowDialog(this);
+            }
+        }
     }
 }
